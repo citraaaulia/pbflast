@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking System</title>
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fullcalendar.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/timegrid.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <title>Booking Gedung</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
     <style>
@@ -16,7 +12,6 @@
         }
     </style>
 </head>
-<body>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
         <div class="bg-white p-10 rounded-lg shadow-lg flex justify-between">
@@ -57,12 +52,14 @@
                             <option value="Universitas">Universitas</option>
                         </select>
                     </div>
-                    <input type="hidden" id="selectedDate" name="date" required>
+                    <input type="hidden" id="selectedDate" name="tanggal_kegiatan" required>
+                    <input type="hidden" id="currentDate" name="tanggal_peminjaman" value="{{ now()->toDateString() }}">
                     <button type="submit" class="w-full py-2 px-4 bg-green-500 text-white rounded">Booking</button>
                 </form>
             </div>
         </div>
     </div>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
@@ -100,6 +97,5 @@
             });
         });
     </script>
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
