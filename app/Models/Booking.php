@@ -13,8 +13,3 @@ class Booking extends Model
         'name', 'organization', 'activity', 'scale', 'tanggal_peminjaman', 'ruangan', 'tanggal_kegiatan', 'status',
     ];
 } 
-
-
-
-
-
