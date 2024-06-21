@@ -15,5 +15,3 @@ class RiwayatController extends Controller
         return view('riwayat', compact('diajukan', 'selesai', 'ditolak'));
     }
 }
-
-
