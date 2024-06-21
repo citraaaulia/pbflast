@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\bookingController;
 use App\Http\Controllers\diajukanController;
 use App\Http\Controllers\DisposisiController;
 use App\Http\Controllers\ProfileController;
@@ -10,6 +9,7 @@ use App\Http\Controllers\tolakController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\SuratController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RiwayatController;
 
@@ -53,11 +53,17 @@ Route::get('/selesai', [selesaiController::class, 'selesai']);
 
 Route::get('/tolak', [tolakController::class, 'tolak']);
 
-Route::get('/booking', [bookingController::class, 'booking']);
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes(['verify' => true]);
+
+//Ana
+Route::get('/booking', function () {
+    return view('booking');
+})->name('booking');
+
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat');
