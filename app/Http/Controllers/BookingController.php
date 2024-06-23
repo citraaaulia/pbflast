@@ -48,4 +48,12 @@ class BookingController extends Controller
     {
         return view('profil');
     }
+
+    public function destroy($id)
+    {
+        $booking = Booking::findOrFail($id);
+        $booking->delete();
+
+        return response()->json(['success' => 'Booking deleted successfully']);
+    }
 }
