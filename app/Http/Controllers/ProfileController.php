@@ -3,19 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Booking;
 
 class ProfileController extends Controller
 {
-    public function show()
+    public function index()
     {
-        $user = [
-            'first_name' => 'Briana',
-            'last_name' => 'Firsta',
-            'student_id' => '2111522024',
-            'department' => 'Sistem Informasi',
-            'password' => '123456'
-        ];
+        return view('profil');
+    }
 
-        return view('profile', compact('user'));
+    public function showRiwayat()
+    {
+        $diajukan = Booking::where('status', 'diajukan')->get();
+        $selesai = Booking::where('status', 'selesai')->get();
+        $ditolak = Booking::where('status', 'ditolak')->get();
+        return view('riwayat', compact('diajukan', 'selesai', 'ditolak'));
+    }
+
+    public function showBooking()
+    {
+        return view('booking');
     }
 }
