@@ -73,3 +73,4 @@ Route::get('/riwayat', [ProfileController::class, 'showRiwayat'])->name('riwayat
 Route::get('/booking', [ProfileController::class, 'showBooking'])->name('booking.show');
 Route::get('/riwayat', [BookingController::class, 'showRiwayat'])->name('riwayat.show');
 Route::get('/profil', [BookingController::class, 'showProfil'])->name('profil.show');
+Route::delete('/booking/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');
