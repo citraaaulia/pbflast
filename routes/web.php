@@ -11,8 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\SuratController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RiwayatController;
-use App\Http\Controllers\ProfileController;
+
 
 
 /*
@@ -30,20 +31,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Auth::routes();
 
-Route::get('/RiwayatDisposisi', [DisposisiController::class, 'riwayatPending'])->name('riwayat.pending');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/RiwayatDitolak', [DisposisiController::class, 'riwayatTolak'])->name('riwayat.ditolak');
-Route::get('/RiwayatSelesai', [DisposisiController::class, 'riwayatSelesai'])->name('riwayat.selesai');
+Auth::routes(['verify' => true]);
+
+Route::group(['prefix'=> 'tatausaha', 'middleware' => ['auth', 'role:tatausaha']], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/RiwayatDisposisi', [DisposisiController::class, 'riwayatPending'])->name('riwayat.pending');
+    
+    Route::get('/RiwayatDitolak', [DisposisiController::class, 'riwayatTolak'])->name('riwayat.ditolak');
+    Route::get('/RiwayatSelesai', [DisposisiController::class, 'riwayatSelesai'])->name('riwayat.selesai');
+    
+
+});
 
 Route::get('/disposisiRT', [SuratController::class, 'Pengajuan'])->name('peminjaman.gedung');
 Route::post('/surat-disposisi/store', [SuratController::class, 'store'])->name('surat.disposisi.store');
 Route::get('/surat-disposisi/generate/{id}', [SuratController::class, 'generateSuratDisposisiPDF'])->name('surat.disposisi.generate');
-
 Route::get('surat/create', [SuratController::class, 'create'])->name('surat.create');
-
-
 Route::get('/profile', [ProfileController::class, 'show']);
 
 // routes/web.php
@@ -54,11 +62,6 @@ Route::get('/selesai', [selesaiController::class, 'selesai']);
 
 Route::get('/tolak', [tolakController::class, 'tolak']);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes(['verify' => true]);
 
 //Ana
 Route::get('/booking', function () {
@@ -66,7 +69,6 @@ Route::get('/booking', function () {
 })->name('booking');
 
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat');
 Route::get('/profil', [ProfileController::class, 'index'])->name('profil');
 Route::get('/riwayat', [ProfileController::class, 'showRiwayat'])->name('riwayat.show');

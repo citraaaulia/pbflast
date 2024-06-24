@@ -15,11 +15,7 @@
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10 max-w-4xl">
-        <div class="bg-white p-10 rounded-lg shadow-lg flex flex-col md:flex-row justify-between">
-            <div>
-                <h2 class="text-2xl font-bold mb-4">Gedung Seminar I</h2>
-                <div class="mb-6">
-                    <div id="calendar"></div>
+       
     <div class="container mx-auto mt-10">
         <div class="bg-white p-10 rounded-lg shadow-lg">
             <!-- Navigation and Search Section -->
@@ -47,12 +43,7 @@
                     </button>
                 </div>
             </div>
-            
-            <div class="md:w-1/2 md:ml-10 mt-10 md:mt-0">
-                <h2 class="text-2xl font-bold mb-4">Isi Formulir</h2>
-                @if(session('success'))
-                    <div class="bg-green-500 text-white p-4 mb-4">
-                        {{ session('success') }}
+
 
             <!-- Main Content -->
             <div class="flex justify-between">
