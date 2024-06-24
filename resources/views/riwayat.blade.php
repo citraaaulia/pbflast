@@ -58,7 +58,7 @@
                                 <button class="bg-gray-200 text-gray-700 py-1 px-2 rounded" disabled>
                                     <span class="bi bi-cloud-arrow-up"></span>
                                 </button>
-                                <button class="bg-red-500 text-white py-1 px-2 rounded">
+                                <button class="bg-red-500 text-white py-1 px-2 rounded" onclick="deleteBooking({{ $booking->id }})">
                                     <span class="bi bi-x"></span>
                                 </button>
                             </td>
@@ -168,6 +168,27 @@
         document.addEventListener('DOMContentLoaded', function () {
             showTab('diajukan');
         });
+
+        function deleteBooking(id) {
+            if (confirm('Are you sure you want to delete this booking?')) {
+                fetch(`/booking/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert('Failed to delete booking.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
     </script>
 </body>
 </html>

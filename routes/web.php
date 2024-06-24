@@ -12,6 +12,7 @@ use App\Http\Controllers\SuratController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RiwayatController;
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -67,3 +68,9 @@ Route::get('/booking', function () {
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat');
+Route::get('/profil', [ProfileController::class, 'index'])->name('profil');
+Route::get('/riwayat', [ProfileController::class, 'showRiwayat'])->name('riwayat.show');
+Route::get('/booking', [ProfileController::class, 'showBooking'])->name('booking.show');
+Route::get('/riwayat', [BookingController::class, 'showRiwayat'])->name('riwayat.show');
+Route::get('/profil', [BookingController::class, 'showProfil'])->name('profil.show');
+Route::delete('/booking/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');

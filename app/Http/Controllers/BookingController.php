@@ -35,4 +35,25 @@ class BookingController extends Controller
 
         return response()->json(['success' => 'Booking berhasil!'], 200);
     }
+
+    public function showRiwayat()
+    {
+        $diajukan = Booking::where('status', 'diajukan')->get();
+        $selesai = Booking::where('status', 'selesai')->get();
+        $ditolak = Booking::where('status', 'ditolak')->get();
+        return view('riwayat', compact('diajukan', 'selesai', 'ditolak'));
+    }
+
+    public function showProfil()
+    {
+        return view('profil');
+    }
+
+    public function destroy($id)
+    {
+        $booking = Booking::findOrFail($id);
+        $booking->delete();
+
+        return response()->json(['success' => 'Booking deleted successfully']);
+    }
 }
