@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use app\Models\User;
 
 class LoginController extends Controller
 {
@@ -37,20 +37,18 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('auth')->only('logout');
     }
     /**
      * Get the post login redirect path.
      *
      * @return string
      */
-    protected function redirectTo()
+
+    public function redirectTo()
     {
-        // Check user role using spatie/laravel-permission
+        // Check user role
         if (Auth::user()->hasRole('tatausaha')) {
             return '/tatausaha/dashboard';
-        } elseif (Auth::user()->hasRole('rumahtangga')) {
-            return '/rumahtangga/disposisiRT';
         }
 
         // Default redirect for other roles

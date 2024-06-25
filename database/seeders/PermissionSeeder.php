@@ -32,13 +32,20 @@ class PermissionSeeder extends Seeder
         $permissions = Permission::updateOrCreate(
             ['name'=> 'view_dashboard'],
             ['name'=> 'view_dashboard']
+        );  
+
+        $permissions2 = Permission::updateOrCreate(
+            ['name'=> 'view_disposisi'],
+            ['name'=> 'view_disposisi']
         );
 
         $role_tatausaha->givePermissionTo($permissions);
-        
-        $user = User::find(1);
-        $user->assignRole('tatausaha');
+        $role_rumahtangga->givePermissionTo($permissions2);
 
+        $user = User::find(1);
+        $user2 = User::find(2);
+        $user->assignRole('tatausaha');
+        $user2->assignRole('rumahtangga');
 
     }
 }

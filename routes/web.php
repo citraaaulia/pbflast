@@ -48,11 +48,13 @@ Route::group(['prefix'=> 'tatausaha', 'middleware' => ['auth', 'role:tatausaha']
 
 });
 
-Route::get('/disposisiRT', [SuratController::class, 'Pengajuan'])->name('peminjaman.gedung');
-Route::post('/surat-disposisi/store', [SuratController::class, 'store'])->name('surat.disposisi.store');
-Route::get('/surat-disposisi/generate/{id}', [SuratController::class, 'generateSuratDisposisiPDF'])->name('surat.disposisi.generate');
-Route::get('surat/create', [SuratController::class, 'create'])->name('surat.create');
-Route::get('/profile', [ProfileController::class, 'show']);
+Route::group(['prefix'=> 'rumahtangga', 'middleware' => ['auth', 'role:rumahtangga']], function () {
+    Route::get('/disposisiRT', [SuratController::class, 'Pengajuan'])->name('peminjaman.gedung');
+    Route::post('/surat-disposisi/store', [SuratController::class, 'store'])->name('surat.disposisi.store');
+    Route::get('/surat-disposisi/generate/{id}', [SuratController::class, 'generateSuratDisposisiPDF'])->name('surat.disposisi.generate');
+    Route::get('surat/create', [SuratController::class, 'create'])->name('surat.create');
+    Route::get('/profile', [ProfileController::class, 'show']);
+});
 
 // routes/web.php
 
