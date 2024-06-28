@@ -1,44 +1,9 @@
-<nav>
-        <div class="container">
-            <div class="sidebar">
-                <div class="menu-btn">
-                    <i class="ph-bold ph-caret-left"></i>
-                </div>
-                <div class="head">
-                    <div class="user-img">
-                        <img src="img.png" alt="Citra Aulia">
-                    </div>
-                    <div class="user-details">
-                        <p class="title">Rumah Tangga</p>
-                        <p class="name">Citra Aulia</p>
-                    </div>
-                </div>
-                <div class="nav">
-                    <div class="menu">
-                        <p class="title">Main</p>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <i class="icon ph-bold ph-house-simple"></i>
-                                    <span class="text">Disposisi</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="menu">
-                    <p class="title">Account</p>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i class="icon ph-bold ph-sign-out"></i>
-                                <span class="text">Logout</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    
+<div class="w-1/5 bg-white h-screen p-5 shadow-lg d-flex flex-column">
+    <div class="flex items-center mb-10">
+        <img src="{{ asset('img/logo_unand.png') }}" alt="Logo" class="h-12 w-12 mr-2">
+        <span class="font-bold text-lg">Sistem Informasi Peminjaman Gedung</span>
+    </div>
+    <ul class="list-unstyled">
+        <li class="mb-4"><a href="#" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-speedometer"></span><span class="ml-2">Disposisi</span></a></li>
+    </ul>
+</div>

@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-<<<<<<< HEAD
         .dropdown-menu {
             display: none;
         }
@@ -16,13 +15,6 @@
             display: block;
         }
     </style>
-=======
-        .dropdown:focus .dropdown-menu {
-            display: block;
-        }
-    </style>
-    
->>>>>>> 485726d50555bd9b87f2a9d7878b6dad43d59c92
 </head>
 <body class="bg-gray-100">
     <div class="flex">
@@ -36,17 +28,15 @@
                 <li class="mb-4"><a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-speedometer"></span><span class="ml-2">Dashboard</span></a></li>
                 <li class="mb-4"><a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-buildings"></span><span class="ml-2">Pengajuan Peminjaman</span></a></li>
                 <li class="mb-4 dropdown relative">
-<<<<<<< HEAD
                     <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded focus:outline-none dropdown-toggle">
                         <span class="bi bi-clock-history"></span><span class="ml-2">Riwayat Pengajuan</span>
                         <span class="bi bi-chevron-down ml-auto"></span>
                     </a>
                     <ul class="dropdown-menu absolute bg-white text-gray-700 pt-1 w-full shadow-lg rounded">
-                        <li class="w-full"><a href="/RiwayatDisposisi" class="block px-4 py-2 hover:bg-gray-200">Disposisi</a></li>
-                        <li class="w-full"><a href="/RiwayatDitolak" class="block px-4 py-2 hover:bg-gray-200">Ditolak</a></li>
-                        <li class="w-full"><a href="/RiwayatSelesai" class="block px-4 py-2 hover:bg-gray-200">Selesai</a></li>
-=======
-                    </ul>
+    <li class="w-full"><a href="{{ route('riwayat.pending') }}" class="block px-4 py-2 hover:bg-gray-200">Disposisi</a></li>
+    <li class="w-full"><a href="{{ route('riwayat.ditolak') }}" class="block px-4 py-2 hover:bg-gray-200">Ditolak</a></li>
+    <li class="w-full"><a href="{{ route('riwayat.selesai') }}" class="block px-4 py-2 hover:bg-gray-200">Selesai</a></li>
+</ul>
                 </li>
                 <li class="mb-4"><a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-calendar"></span><span class="ml-2">Manajemen Kalender</span></a></li>
                 <li class="mb-4"><a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-file-earmark"></span><span class="ml-2">Laporan</span></a></li>
@@ -101,18 +91,6 @@
                     event.preventDefault();
                     var menu = dropdown.querySelector('.dropdown-menu');
                     menu.classList.toggle('show');
-                });
-            });
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var dropdowns = document.querySelectorAll('.dropdown');
-            dropdowns.forEach(function (dropdown) {
-                dropdown.addEventListener('click', function (event) {
-                    var menu = this.querySelector('.dropdown-menu');
-                    menu.classList.toggle('hidden');
                 });
             });
         });

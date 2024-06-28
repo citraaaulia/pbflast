@@ -1,84 +1,22 @@
-<nav>
-    <div class="container">
-        <div class="sidebar">
-            <div class="menu-btn">
-                <i class="ph-bold ph-caret-left"></i>
-            </div>
-            <div class="head">
-                <div class="user-img">
-                    <img src="img.png" alt="Citra Aulia">
-                </div>
-                <div class="user-details">
-                    <p class="title">Tata Usaha</p>
-                    <p class="name">Citra Aulia</p>
-                </div>
-            </div>
-            <div class="nav">
-                <div class="menu">
-                    <p class="title">Main</p>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i class="icon ph-bold ph-house-simple"></i>
-                                <span class="text">Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon ph-bold ph-file-text"></i>
-                                <span class="text">Pengajuan Peminjaman</span>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#">
-                                <i class="icon ph-bold ph-chart-bar"></i>
-                                <span class="text">Riwayat Pengajuan</span>
-                                <i class="arrow ph-bold ph-caret-down"></i>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a class="nav-link {{ ($title === 'Riwayat Disposisi') ? 'active' : '' }}" href="{{ route('riwayat.pending') }}">
-                                        <span class="text">Disposisi</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link {{ ($title === 'Riwayat Ditolak') ? 'active' : '' }}" href="{{ route('riwayat.ditolak') }}">
-                                        <span class="text">Ditolak</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link {{ ($title === 'Riwayat Selesai') ? 'active' : '' }}" href="{{ route('riwayat.selesai') }}">
-                                        <span class="text">Selesai</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon ph-bold ph-info"></i>
-                                <span class="text">Manajemen Kalender</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon ph-bold ph-info"></i>
-                                <span class="text">Laporan</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="menu">
-                    <p class="title">Account</p>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i class="icon ph-bold ph-sign-out"></i>
-                                <span class="text">Logout</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<div class="w-1/5 bg-white h-screen p-5 shadow-lg d-flex flex-column">
+    <div class="flex items-center mb-10">
+        <img src="{{ asset('img/logo_unand.png') }}" alt="Logo" class="h-12 w-12 mr-2">
+        <span class="font-bold text-lg">Sistem Informasi Peminjaman Gedung</span>
     </div>
-</nav>
+    <ul class="list-unstyled">
+        <li class="mb-4"><a href="#" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-speedometer"></span><span class="ml-2">Dashboard</span></a></li>
+        <li class="mb-4"><a href="#" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-buildings"></span><span class="ml-2">Pengajuan Peminjaman</span></a></li>
+        <li class="mb-4 dropdown relative">
+            <a href="#" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded focus:outline-none dropdown-toggle">
+                <span class="bi bi-clock-history"></span><span class="ml-2">Riwayat Pengajuan</span>
+            </a>
+            <ul class="dropdown-menu position-absolute bg-white text-gray-700 pt-1 w-100 shadow-lg rounded">
+                <li class="w-100"><a href="{{ route('riwayat.pending') }}" class="d-block px-4 py-2 hover:bg-gray-200">Disposisi</a></li>
+                <li class="w-100"><a href="{{ route('riwayat.ditolak') }}" class="d-block px-4 py-2 hover:bg-gray-200">Ditolak</a></li>
+                <li class="w-100"><a href="{{ route('riwayat.selesai') }}" class="d-block px-4 py-2 hover:bg-gray-200">Selesai</a></li>
+            </ul>
+        </li>
+        <li class="mb-4"><a href="#" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-calendar"></span><span class="ml-2">Manajemen Kalender</span></a></li>
+        <li class="mb-4"><a href="#" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-file-earmark"></span><span class="ml-2">Laporan</span></a></li>
+    </ul>
+</div>
