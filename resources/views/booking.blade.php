@@ -22,7 +22,7 @@
             <div class="flex justify-between items-center mb-6">
                 <div class="flex items-center">
                     <!-- Back Button -->
-                    <button class="text-gray-600 hover:text-gray-800">
+                    <button class="text-gray-600 hover:text-gray-800" onclick="window.location.href='{{ route('home') }}'">
                         <span class="bi bi-chevron-left"></span>
                     </button>
                     <!-- Search Bar -->

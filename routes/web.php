@@ -39,13 +39,9 @@ Auth::routes(['verify' => true]);
 
 Route::group(['prefix'=> 'tatausaha', 'middleware' => ['auth', 'role:tatausaha']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
     Route::get('/RiwayatDisposisi', [DisposisiController::class, 'riwayatPending'])->name('riwayat.pending');
-    
     Route::get('/RiwayatDitolak', [DisposisiController::class, 'riwayatTolak'])->name('riwayat.ditolak');
     Route::get('/RiwayatSelesai', [DisposisiController::class, 'riwayatSelesai'])->name('riwayat.selesai');
-    
-
 });
 
 Route::group(['prefix'=> 'rumahtangga', 'middleware' => ['auth', 'role:rumahtangga']], function () {

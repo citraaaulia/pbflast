@@ -11,95 +11,54 @@
                 
                 <h1 class="text-overlay">Cari ruangan yang ingin kamu pinjam</h1>
                 <p class="lead text-overlay">Jadikan Pengalaman booking gedung untuk kegiatan kamu menjadi lebih mudah</p>
-                <p class="lead">
-                <div class="card">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Cari Gedung</option>
-                        <option value="1">Auditorium</option>
-                        <option value="2">Convention Hall</option>
-                        <option value="3">PKM</option>
-                    </select>
-                        </main>
-                </div>
+                    <p class="lead">
+                        <div class="card" >
+                            <form action="{{ route('home') }}" method="GET">
+                                <div class="input-group">
+                                <select class="form-select" name="nama_gedung" aria-label="Pilih Nama Gedung">
+                                    <option value="all" selected>Semua Gedung</option>
+                                    @foreach($daftarGedung as $gedung)
+                                        <option value="{{ $gedung->ID_gedung }}">{{ $gedung->Nama_gedung }}</option>
+                                    @endforeach
+                                </select>
+                                <button type="submit" class="btn btn-primary">Cari</button>
+                                </div>
+                               
+                            </form>
+                        </div>
+                    </p>
+                </main>
                         
 
             </div>
         </div>
 
         <hr></hr>
-
+        <!-- daftar gedung -->
         <div class="album py-5 bg-light">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="col">
-                        <div class="card shadow-sm">
-                        <img src="{{asset('img/image 5.png')}}" alt ="album"  class="img-fluid">
-                            <div class="card-body">
-                                <h5 class="card-title">Seminar I</h5>
-                                <p class="card-text">memiliki kapasitas 200 orang dengan susunan bangku tribun</p>
-                                <a href="#" class="btn btn-primary">Lihat Detail</a>
+                    @if($gedungs->isEmpty())
+                        <div class="col-12 text-center">
+                            <p class="text-muted">Tidak ada gedung yang ditemukan.</p>
+                        </div>
+                    @else
+                        @foreach($gedungs as $gedung)
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <img src="{{ asset($gedung->foto) }}" alt="{{ $gedung->Nama_gedung }}" class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $gedung->Nama_gedung }}</h5>
+                                        <p class="card-text">{{ $gedung->keterangan }}</p>
+                                        <a href="{{ route('booking.store', ['id' => $gedung->id]) }}" class="btn btn-primary">Booking</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>    
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                        <img src="{{asset('img/image 6.png')}}" alt ="album"  class="img-fluid">
-                            <div class="card-body">
-                                <h5 class="card-title">Convention Hall</h5>
-                                <p class="card-text">Memiliki Kapasitas 400 Orang dengan susunan bangku lantai utama dan tribun</p>
-                                <a href="#" class="btn btn-primary">Lihat Detail</a>
-                            </div>
-                        </div>    
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                        <img src="{{asset('img/image 7.png')}}" alt ="album"  class="img-fluid">
-                            <div class="card-body">
-                                <h5 class="card-title">Seminar F</h5>
-                                <p class="card-text">Memiliki kapasitas 100 Orang dengan susunan bangku tribun</p>
-                                <a href="#" class="btn btn-primary">Lihat Detail</a>
-                            </div>
-                        </div>    
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                        <img src="{{asset('img/REGIS.png')}}" alt ="album"  class="img-fluid">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>    
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                        <img src="{{asset('img/REGIS.png')}}" alt ="album"  class="img-fluid">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>    
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                        <img src="{{asset('img/REGIS.png')}}" alt ="album"  class="img-fluid">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>    
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 @endsection

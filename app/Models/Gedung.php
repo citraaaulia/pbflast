@@ -13,6 +13,6 @@ class Gedung extends Model
     protected $primaryKey = 'ID_gedung';
 
     protected $fillable = [
-        'Nama_gedung', 'Lokasi', 'Kapasitas', 'status_gedung'
+        'Nama_gedung', 'Lokasi', 'Kapasitas','foto', 'status_gedung','keterangan'
     ];
 }
