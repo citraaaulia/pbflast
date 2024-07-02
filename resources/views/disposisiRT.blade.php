@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="mx-auto">
+<div class="overflow-x-auto">
     <h1 class="text-2xl font-semibold mb-4">{{ $title }}</h1>
 
     <div id="suratForm" class="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -39,28 +39,42 @@
     <p class="text-gray-600 dark:text-gray-400">Tidak ada peminjaman gedung.</p>
     @else
     <div class="overflow-x-auto">
-        <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700" style="border: 1px solid black;">
-            <thead class="bg-gray-50 dark:bg-neutral-800" style="border: 1px solid black;">
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700" style="padding-right: 80px;">
+            <thead class="bg-gray-50 dark:bg-neutral-800">
                 <tr>
-                    <th style="border: 1px solid black;  padding: 8px; ">ID Disposisi</th>
-                    <th style="border: 1px solid black;  padding: 8px; ">ID Peminjaman</th>
-                    <th style="border: 1px solid black;  padding: 8px; ">ID Karumahtangga</th>
-                    <th style="border: 1px solid black;  padding: 8px; ">Status</th>
-                    <th style="border: 1px solid black;  padding: 8px; ">Catatan</th>
-                    <th style="border: 1px solid black;  padding: 8px; ">Tanggal Disposisi</th>
-                    <th style="border: 1px solid black;  padding: 8px; ">Aksi</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider">ID Disposisi</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider">ID Peminjaman</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider">ID Karumahtangga</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider">Status</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider">Catatan</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider">Tanggal Disposisi</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider">Aksi</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
                 @foreach ($Pengajuan as $peminjaman)
                 <tr>
-                    <td style="border: 1px solid black;" align="center" >{{ $peminjaman->ID_Disposisi }}</td>
-                    <td style="border: 1px solid black;" align="center" >{{ $peminjaman->ID_Peminjaman }}</td>
-                    <td style="border: 1px solid black;" align="center" >{{ $peminjaman->ID_karumahtangga }}</td>
-                    <td style="border: 1px solid black;" align="center" >{{ $peminjaman->status }}</td>
-                    <td style="border: 1px solid black;" align="center" >{{ $peminjaman->catatan }}</td>
-                    <td style="border: 1px solid black;" align="center" >{{ $peminjaman->Tanggal_disposisi }}</td>
-                    <td style="border: 1px solid black;" align="center" >
+
+                <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900 dark:text-neutral-400">{{ $peminjaman->ID_Disposisi }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900 dark:text-neutral-400">{{ $peminjaman->ID_Peminjaman }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900 dark:text-neutral-400">{{ $peminjaman->ID_karumahtangga }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900 dark:text-neutral-400">{{ $peminjaman->status }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900 dark:text-neutral-400">{{ $peminjaman->catatan }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900 dark:text-neutral-400">{{ $peminjaman->Tanggal_disposisi }}</div>
+                    </td>
+
+                    <td >
                         <div class="px-6 py-1.5 flex justify-end">
                             <button class="btn btn-primary" onclick="openForm('{{ $peminjaman->ID_Disposisi }}', '{{ $peminjaman->ID_Peminjaman }}', '{{ $peminjaman->ID_karumahtangga }}')">Disposisi</button>
                         </div>
@@ -86,29 +100,5 @@
     }
 </script>
 
-<style>
-    .modal {
-        display: none;
-        position: fixed;
-        inset: 0;
-        z-index: 50;
-        align-items: center;
-        justify-content: center;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .modal-content {
-        background-color: #fff;
-        padding: 1.5rem;
-        border-radius: 0.5rem;
-        position: relative;
-        max-width: 500px;
-        width: 100%;
-    }
-
-    .close {
-        font-size: 1.25rem;
-        cursor: pointer;
-    }
 </style>
 @endsection

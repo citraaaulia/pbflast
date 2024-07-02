@@ -68,4 +68,9 @@ class Kernel extends HttpKernel
         'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
     ];
+
+    protected $routeMiddleware = [
+        'redirect_if_authenticated' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+    ];
+    
 }

@@ -13,22 +13,22 @@
         <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700" style="padding-right: 80px;">
             <thead class="bg-gray-50 dark:bg-neutral-800">
                 <tr>
-                    <th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider" >
                         ID Disposisi
                     </th>
-                    <th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider" >
                         ID Peminjaman
                     </th>
-                    <th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider" >
                         ID Karumahtangga
                     </th>
-                    <th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider" >
                         Status
                     </th>
-                    <th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider" >
                         Catatan
                     </th>
-                    <th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-neutral-300 uppercase tracking-wider" >
                         Tanggal Disposisi
                     </th>
                 </tr>
@@ -37,22 +37,22 @@
                 @foreach($riwayatSelesai as $disposisi)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div>{{ $disposisi->ID_Disposisi }}</div>
+                        <div class="text-sm text-gray-900 dark:text-neutral-400">{{ $disposisi->ID_Disposisi }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div>{{ $disposisi->ID_Peminjaman }}</div>
+                        <div class="text-sm text-gray-900 dark:text-neutral-400">{{ $disposisi->ID_Peminjaman }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div>{{ $disposisi->ID_karumahtangga }}</div>
+                        <div class="text-sm text-gray-900 dark:text-neutral-400">{{ $disposisi->ID_karumahtangga }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div>{{ $disposisi->status }}</div>
+                        <div class="text-sm text-gray-900 dark:text-neutral-400">{{ $disposisi->status }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div>{{ $disposisi->catatan }}</div>
+                        <div class="text-sm text-gray-900 dark:text-neutral-400">{{ $disposisi->catatan }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div>{{ $disposisi->Tanggal_disposisi }}</div>
+                        <div class="text-sm text-gray-900 dark:text-neutral-400">{{ $disposisi->Tanggal_disposisi }}</div>
                     </td>
                 </tr>
                 @endforeach
