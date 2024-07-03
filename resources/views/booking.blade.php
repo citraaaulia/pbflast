@@ -52,6 +52,7 @@
                     <div class="mb-6">
                         <div id="calendar"></div>
                     </div>
+                    
                 </div>
                 <div class="ml-10">
                     <h2 class="text-2xl font-bold mb-4">Isi Formulir</h2>

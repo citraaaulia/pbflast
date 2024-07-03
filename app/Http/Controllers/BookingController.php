@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Gedung;
 
 class BookingController extends Controller
 {
@@ -55,5 +56,11 @@ class BookingController extends Controller
         $booking->delete();
 
         return response()->json(['success' => 'Booking deleted successfully']);
+    }
+
+    public function showGedungDetail($id)
+    {
+        $gedung = Gedung::findOrFail($id);
+        return view('booking.store', compact('gedung'));
     }
 }
