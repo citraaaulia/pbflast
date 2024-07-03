@@ -3,6 +3,10 @@
 @section('title', $title)
 
 @section('content')
+<!-- Back Button -->
+                    <button class="text-gray-600 hover:text-gray-800" onclick="window.location.href='{{ route('dashboard') }}'">
+                        <span class="bi bi-chevron-left"></span>
+                    </button>
 <div class="container mt-8"> 
     <h1 class="text-2xl font-semibold mb-4">Riwayat Disposisi Pending</h1>
 

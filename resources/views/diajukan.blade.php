@@ -1,63 +1,95 @@
-<!-- resources/views/profile.blade.php -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <button class="back-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-            <h2>Diajukan</h2>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Tanggal Peminjaman</th>
-                    <th>Nama Peminjam</th>
-                    <th>Organisasi</th>
-                    <th>Kegiatan</th>
-                    <th>Skala Kegiatan</th>
-                    <th>Ruangan</th>
-                    <th>Tanggal Kegiatan</th>
-                    <th>Aksi</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>10/03/2024</td>
-                    <td>Briana Firsta</td>
-                    <td>HMSI Unand</td>
-                    <td>Pengkaderan</td>
-                    <td>Jurusan</td>
-                    <td>Gedung Seminar I</td>
-                    <td>20/03/2024</td>
-                    <td>
-                        <button class="action-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </button>
-                        <button class="delete-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </td>
-                    <td>Diajukan</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+@extends('layouts.main')
+
+@section('title', $title)
+
+@section('content')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div class="container mt-8">
+<h1 class="text-2xl font-semibold mb-4">Diajukan</h1>
+<div id="diajukan" class="tab-content">
+                <table class="min-w-full bg-white">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="py-2">No</th>
+                            <th class="py-2">Tanggal Peminjaman</th>
+                            <th class="py-2">Nama Peminjam</th>
+                            <th class="py-2">Organisasi</th>
+                            <th class="py-2">Kegiatan</th>
+                            <th class="py-2">Skala Kegiatan</th>
+                            <th class="py-2">Ruangan</th>
+                            <th class="py-2">Tanggal Kegiatan</th>
+                            <th class="py-2">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($diajukan as $booking)
+                        <tr>
+                            <td class="text-center py-2">{{ $loop->iteration }}</td>
+                            <td class="text-center py-2">{{ $booking->tanggal_peminjaman }}</td>
+                            <td class="text-center py-2">{{ $booking->name }}</td>
+                            <td class="text-center py-2">{{ $booking->organization }}</td>
+                            <td class="text-center py-2">{{ $booking->activity }}</td>
+                            <td class="text-center py-2">{{ $booking->scale }}</td>
+                            <td class="text-center py-2">{{ $booking->ruangan }}</td>
+                            <td class="text-center py-2">{{ $booking->tanggal_kegiatan }}</td>
+                            <td class="text-center py-2">
+                                <!-- Tombol ceklis -->
+                                <button class="bg-green-500 text-white py-1 px-2 rounded" onclick="openApprovalModal({{ $booking->id }})">
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <!-- Tombol silang -->
+                                <button class="bg-red-500 text-white py-1 px-2 rounded" onclick="openApprovalModal({{ $booking->id }})">
+                                    <i class="bi bi-x"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+</div>
+
+@include('modals.approval-modal')
+
+<script>
+    function openApprovalModal(id) {
+        $('#booking_id').val(id);
+        $('#approvalModal').modal('show');
+    }
+
+    $('#approvalForm').submit(function(event) {
+        event.preventDefault();
+        
+        const bookingId = $('#booking_id').val();
+        const catatan = $('#catatan').val();
+        const status = $('#status').val();
+
+        $.ajax({
+            url: "{{ route('approve.booking') }}",
+            type: 'POST',
+            data: {
+                _token: $('input[name="_token"]').val(),
+                booking_id: bookingId,
+                catatan: catatan,
+                status: status
+            },
+            success: function(response) {
+                if(response.success) {
+                    $('#approvalModal').modal('hide');
+                    location.reload();
+                } else {
+                    alert('Terjadi kesalahan. Silakan coba lagi.');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText); // Tambahkan ini untuk debug error
+                alert('Terjadi kesalahan. Silakan coba lagi.');
+            }
+        });
+    });
+</script>
+
+@endsection

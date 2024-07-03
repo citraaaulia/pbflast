@@ -4,8 +4,8 @@
         <span class="font-bold text-lg">Sistem Informasi Peminjaman Gedung</span>
     </div>
     <ul class="list-unstyled">
-        <li class="mb-4"><a href="#" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-speedometer"></span><span class="ml-2">Dashboard</span></a></li>
-        <li class="mb-4"><a href="#" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-buildings"></span><span class="ml-2">Pengajuan Peminjaman</span></a></li>
+        <li class="mb-4"><a href="{{ route('dashboard') }}" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-speedometer"></span><span class="ml-2">Dashboard</span></a></li>
+        <li class="mb-4"><a href="{{ route('diajukan') }}" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-buildings"></span><span class="ml-2">Pengajuan Peminjaman</span></a></li>
         <li class="mb-4 dropdown relative">
             <a href="#" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded focus:outline-none dropdown-toggle">
                 <span class="bi bi-clock-history"></span><span class="ml-2">Riwayat Pengajuan</span>
