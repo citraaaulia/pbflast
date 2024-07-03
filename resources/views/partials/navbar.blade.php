@@ -17,6 +17,6 @@
             </ul>
         </li>
         <li class="mb-4"><a href="#" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-calendar"></span><span class="ml-2">Manajemen Kalender</span></a></li>
-        <li class="mb-4"><a href="#" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-file-earmark"></span><span class="ml-2">Laporan</span></a></li>
+        <li class="mb-4"><a href="{{ route ('riwayat.semua') }}" class="d-flex align-items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-file-earmark"></span><span class="ml-2">Laporan</span></a></li>
     </ul>
 </div>

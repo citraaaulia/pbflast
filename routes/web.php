@@ -13,6 +13,8 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RiwayatController;
+use App\Http\Controllers\LaporanController;
+
 
 
 
@@ -42,6 +44,8 @@ Route::group(['prefix'=> 'tatausaha', 'middleware' => ['auth', 'role:tatausaha']
     Route::get('/RiwayatDisposisi', [DisposisiController::class, 'riwayatPending'])->name('riwayat.pending');
     Route::get('/RiwayatDitolak', [DisposisiController::class, 'riwayatTolak'])->name('riwayat.ditolak');
     Route::get('/RiwayatSelesai', [DisposisiController::class, 'riwayatSelesai'])->name('riwayat.selesai');
+    Route::get('/Laporan', [LaporanController::class, 'riwayatSemua'])->name('riwayat.semua');
+
 });
 
 Route::group(['prefix'=> 'rumahtangga', 'middleware' => ['auth', 'role:rumahtangga']], function () {
