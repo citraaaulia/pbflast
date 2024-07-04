@@ -9,7 +9,7 @@ class Disposisi extends Model
 {
     use HasFactory;
 
-    protected $table = 'disposisi'; // Nama tabel di database
+    protected $table = 'disposisis'; // Nama tabel di database
     protected $primaryKey = 'ID_Disposisi'; // Primary key dari tabel
 
     protected $fillable = [

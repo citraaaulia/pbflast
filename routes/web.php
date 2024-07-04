@@ -68,6 +68,8 @@ Route::get('/booking', function () {
     return view('booking');
 })->name('booking');
 
+// Route::get('/booking/{id}',[BookingController::class, 'show'])->name('booking.show');
+
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat');
 Route::get('/profil', [ProfileController::class, 'index'])->name('profil');

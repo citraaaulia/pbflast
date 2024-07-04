@@ -26,12 +26,12 @@
                         <span class="bi bi-chevron-left"></span>
                     </button>
                     <!-- Search Bar -->
-                    <div class="ml-4 relative text-gray-600">
+                    <!-- <div class="ml-4 relative text-gray-600">
                         <input type="search" name="search" placeholder="Cari ruangan lain" class="bg-gray-200 h-10 px-5 pr-10 rounded-full text-sm focus:outline-none">
                         <button type="submit" class="absolute right-0 top-0 mt-2 mr-4">
                             <span class="bi bi-search"></span>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- History and Profile Icons -->
                 <div class="flex items-center space-x-6">
@@ -48,7 +48,8 @@
             <!-- Main Content -->
             <div class="flex justify-between">
                 <div>
-                    <h2 class="text-2xl font-bold mb-4">Gedung Seminar I</h2>
+                    <h2 class="text-2xl font-bold mb-4">Jadwal Gedung</h2>
+                    
                     <div class="mb-6">
                         <div id="calendar"></div>
                     </div>

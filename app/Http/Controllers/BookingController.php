@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Gedung;
+use App\Models\Disposisi;
 
 class BookingController extends Controller
 {
@@ -41,7 +42,7 @@ class BookingController extends Controller
     {
         $diajukan = Booking::where('status', 'diajukan')->get();
         $selesai = Booking::where('status', 'selesai')->get();
-        $ditolak = Booking::where('status', 'ditolak')->get();
+        $ditolak = Disposisi::where('status', 'ditolak')->get();
         return view('riwayat', compact('diajukan', 'selesai', 'ditolak'));
     }
 
@@ -58,9 +59,11 @@ class BookingController extends Controller
         return response()->json(['success' => 'Booking deleted successfully']);
     }
 
-    public function showGedungDetail($id)
+    public function show($id)
     {
-        $gedung = Gedung::findOrFail($id);
-        return view('booking.store', compact('gedung'));
+        $gedung = Gedung::findOrFail($id); // Mengambil gedung berdasarkan ID, sesuaikan dengan model dan kondisi yang sesuai
+        return view('booking.show', compact('gedung'));
     }
+    
+
 }
