@@ -47,6 +47,8 @@ Route::group(['prefix'=> 'tatausaha', 'middleware' => ['auth', 'role:tatausaha']
     Route::get('/RiwayatSelesai', [DisposisiController::class, 'riwayatSelesai'])->name('riwayat.selesai');
     Route::get('/Laporan', [LaporanController::class, 'riwayatSemua'])->name('riwayat.semua');
     Route::get('/disposisiRT', [SuratController::class, 'Pengajuan'])->name('peminjaman.gedung');
+    Route::get('/diajukan', [diajukanController::class, 'index'])->name('diajukan');
+    Route::post('/approve-booking', [diajukanController::class, 'approveBooking'])->name('approve.booking');
 });
 
 Route::group(['prefix'=> 'rumahtangga', 'middleware' => ['auth', 'role:rumahtangga']], function () {
@@ -72,6 +74,8 @@ Route::get('/tolak', [tolakController::class, 'tolak']);
 Route::get('/booking', function () {
     return view('booking');
 })->name('booking');
+
+// Route::get('/booking/{id}',[BookingController::class, 'show'])->name('booking.show');
 
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat');

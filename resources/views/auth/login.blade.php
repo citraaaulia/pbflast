@@ -8,7 +8,7 @@
             <div class="col-md-4 order-md-1 order-2">
                  
                     <!-- Bagian Kiri dengan Gambar -->
-                    <img src="{{asset('img/image 4.png')}}" alt ="gambar"  class="img-fluid">
+                    <img src="{{asset('img/gedung.png')}}" alt ="gambar"  class="img-fluid">
                     <hr></hr>
                     <div class="card">
                         <div class="card-header bg-success"></div>

@@ -13,6 +13,8 @@ class CreateGedungTable extends Migration
             $table->string('Nama_gedung', 50);
             $table->string('Lokasi', 50);
             $table->integer('Kapasitas');
+            $table->string('foto');
+            $table->string('keterangan');
             $table->boolean('status_gedung');
             $table->timestamps();
         });
