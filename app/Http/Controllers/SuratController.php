@@ -49,7 +49,7 @@ class SuratController extends Controller
 
     public function generateSuratDisposisiPDF($id)
     {
-        $suratDisposisi = SuratDisposisi::findOrFail($id);
+        $suratDisposisi = SuratDisposisi::where('ID_Disposisi', $id)->firstOrFail();
 
         // Create PDF instance (Dompdf)
         $pdf = new Dompdf();

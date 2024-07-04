@@ -18,6 +18,7 @@ use App\Http\Controllers\LaporanController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,7 +46,7 @@ Route::group(['prefix'=> 'tatausaha', 'middleware' => ['auth', 'role:tatausaha']
     Route::get('/RiwayatDitolak', [DisposisiController::class, 'riwayatTolak'])->name('riwayat.ditolak');
     Route::get('/RiwayatSelesai', [DisposisiController::class, 'riwayatSelesai'])->name('riwayat.selesai');
     Route::get('/Laporan', [LaporanController::class, 'riwayatSemua'])->name('riwayat.semua');
-
+    Route::get('/disposisiRT', [SuratController::class, 'Pengajuan'])->name('peminjaman.gedung');
 });
 
 Route::group(['prefix'=> 'rumahtangga', 'middleware' => ['auth', 'role:rumahtangga']], function () {
@@ -55,6 +56,8 @@ Route::group(['prefix'=> 'rumahtangga', 'middleware' => ['auth', 'role:rumahtang
     Route::get('surat/create', [SuratController::class, 'create'])->name('surat.create');
     Route::get('/profile', [ProfileController::class, 'show']);
 });
+
+
 
 // routes/web.php
 

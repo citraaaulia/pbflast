@@ -11,7 +11,7 @@
 
     <table align="center" width="500">
         <tr>
-            <td> <img src="{{ asset('images/unandjaya.jpeg') }}" alt="Logo" height="70"></td>
+            <td> <img src="{{ asset('Logo_Unand.png') }}" alt="Logo" height="70"></td>
 
             <td>
                 <font size="3"><strong>LEMBARAN DISPOSISI SURAT</strong><br> UNIVERSITAS ANDALAS</font><br>

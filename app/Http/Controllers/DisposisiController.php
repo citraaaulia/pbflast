@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Disposisi;
 use Illuminate\Http\Request;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Spatie\Permission\Exceptions\UnauthorizedException;
+use App\Models\SuratDisposisi;
 
 class DisposisiController extends Controller
 {
@@ -29,4 +33,5 @@ class DisposisiController extends Controller
 
         return view('riwayatSelesai', compact('riwayatSelesai', 'title'));
     }
+    
 }

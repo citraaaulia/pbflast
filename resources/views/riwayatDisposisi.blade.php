@@ -6,7 +6,7 @@
 <div class="container mt-8"> 
     <h1 class="text-2xl font-semibold mb-4">Riwayat Disposisi Pending</h1>
 
-    @if (->isEmpty())
+    @if ($riwayatPending->isEmpty())
     <p class="text-gray-600 dark:text-gray-400">Tidak ada riwayat disposisi pending.</p>
     @else
     <div class="overflow-x-auto">
