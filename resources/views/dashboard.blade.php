@@ -38,7 +38,6 @@
                         <li class="w-full"><a href="{{ route('riwayat.selesai') }}" class="block px-4 py-2 hover:bg-gray-200">Selesai</a></li>
                     </ul>
                 </li>
-                <li class="mb-4"><a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-calendar"></span><span class="ml-2">Manajemen Kalender</span></a></li>
                 <li class="mb-4"><a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded"><span class="bi bi-file-earmark"></span><span class="ml-2">Laporan</span></a></li>
             </ul>
         </div>
